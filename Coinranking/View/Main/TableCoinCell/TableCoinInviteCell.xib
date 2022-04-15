@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="101" id="S4l-vR-960" customClass="TableCoinInviteCell" customModule="Coinranking" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S4l-vR-960" id="bnW-hc-uyO">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBz-bw-T0g">
+                        <rect key="frame" x="8" y="1" width="398" height="88"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gift" translatesAutoresizingMaskIntoConstraints="NO" id="hoK-Nf-McU">
+                                <rect key="frame" x="16" y="19" width="50" height="50"/>
+                                <color key="tintColor" red="0.89399939780000004" green="0.55736404660000005" blue="0.40158480410000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Bhn-t5-Tc6"/>
+                                    <constraint firstAttribute="width" secondItem="hoK-Nf-McU" secondAttribute="height" multiplier="1:1" id="ONu-fo-bnQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can earn $10 when you invite to buy crypto. Invite your friend" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfB-xb-xWB">
+                                <rect key="frame" x="82" y="25" width="300" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.76940923930000005" green="0.90194314720000002" blue="0.99858051540000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hoK-Nf-McU" firstAttribute="leading" secondItem="kBz-bw-T0g" secondAttribute="leading" constant="16" id="7KH-dK-S2P"/>
+                            <constraint firstAttribute="height" constant="88" id="b8M-P6-snC"/>
+                            <constraint firstItem="hoK-Nf-McU" firstAttribute="centerY" secondItem="kBz-bw-T0g" secondAttribute="centerY" id="h8v-zG-gEw"/>
+                            <constraint firstItem="sfB-xb-xWB" firstAttribute="leading" secondItem="hoK-Nf-McU" secondAttribute="trailing" constant="16" id="lnq-40-bqz"/>
+                            <constraint firstAttribute="trailing" secondItem="sfB-xb-xWB" secondAttribute="trailing" constant="16" id="skv-WH-a8h"/>
+                            <constraint firstItem="sfB-xb-xWB" firstAttribute="centerY" secondItem="kBz-bw-T0g" secondAttribute="centerY" id="x8W-9J-BwW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="kBz-bw-T0g" secondAttribute="trailing" constant="8" id="9cp-Kg-Wio"/>
+                    <constraint firstItem="kBz-bw-T0g" firstAttribute="leading" secondItem="bnW-hc-uyO" secondAttribute="leading" constant="8" id="OQR-0O-BCF"/>
+                    <constraint firstItem="kBz-bw-T0g" firstAttribute="top" secondItem="bnW-hc-uyO" secondAttribute="top" constant="1" id="OZO-8S-PcS"/>
+                    <constraint firstAttribute="bottom" secondItem="kBz-bw-T0g" secondAttribute="bottom" constant="12" id="sqW-bJ-Owt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgGift" destination="hoK-Nf-McU" id="4UT-tj-O8f"/>
+                <outlet property="lbInviteFriend" destination="sfB-xb-xWB" id="7gf-Rs-s0m"/>
+                <outlet property="viewCell" destination="kBz-bw-T0g" id="xyh-Qb-VHt"/>
+            </connections>
+            <point key="canvasLocation" x="-65.217391304347828" y="274.88839285714283"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="gift" width="640" height="640"/>
+    </resources>
+</document>

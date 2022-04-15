@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="80" id="U1T-Ja-W4s" customClass="TableCoinErrorCell" customModule="Coinranking" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U1T-Ja-W4s" id="LOO-P1-jBO">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbh-ld-yKr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Could not load data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZa-4H-iQs">
+                                <rect key="frame" x="132.5" y="17.5" width="149" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SfS-Ud-pmD">
+                                <rect key="frame" x="165" y="36.5" width="84" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Try again"/>
+                                <connections>
+                                    <action selector="btnTryAgainAction:" destination="U1T-Ja-W4s" eventType="touchUpInside" id="sfj-Ao-qMr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="RZa-4H-iQs" firstAttribute="centerX" secondItem="lbh-ld-yKr" secondAttribute="centerX" id="1f7-Ti-5so"/>
+                            <constraint firstItem="SfS-Ud-pmD" firstAttribute="centerY" secondItem="lbh-ld-yKr" secondAttribute="centerY" constant="12" id="5Jp-y3-wqN"/>
+                            <constraint firstItem="RZa-4H-iQs" firstAttribute="centerY" secondItem="lbh-ld-yKr" secondAttribute="centerY" constant="-12" id="Rf4-tM-Qwh"/>
+                            <constraint firstItem="SfS-Ud-pmD" firstAttribute="centerX" secondItem="lbh-ld-yKr" secondAttribute="centerX" id="e7n-0m-Kaw"/>
+                            <constraint firstAttribute="height" constant="80" id="ljT-kU-2my"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lbh-ld-yKr" firstAttribute="top" secondItem="LOO-P1-jBO" secondAttribute="top" id="5Jz-AJ-lec"/>
+                    <constraint firstAttribute="trailing" secondItem="lbh-ld-yKr" secondAttribute="trailing" id="bj5-II-k21"/>
+                    <constraint firstAttribute="bottom" secondItem="lbh-ld-yKr" secondAttribute="bottom" id="jZs-be-WFL"/>
+                    <constraint firstItem="lbh-ld-yKr" firstAttribute="leading" secondItem="LOO-P1-jBO" secondAttribute="leading" id="wj7-TQ-1hM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-65.217391304347828" y="267.1875"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="50" id="r03-t9-xcV" customClass="TableCoinLoadingCell" customModule="Coinranking" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r03-t9-xcV" id="ien-UZ-d0n">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dl7-nF-E7C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70v-Gz-rON" customClass="UCZProgressView">
+                                <rect key="frame" x="192" y="15" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="70v-Gz-rON" secondAttribute="height" multiplier="1:1" id="cyL-c4-m6B"/>
+                                    <constraint firstAttribute="width" constant="30" id="hRL-wk-Mjl"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="indeterminate" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                        <color key="value" red="0.2196078431372549" green="0.62745098039215685" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="70v-Gz-rON" firstAttribute="centerY" secondItem="dl7-nF-E7C" secondAttribute="centerY" id="JL9-V7-OmH"/>
+                            <constraint firstAttribute="height" constant="60" id="MpH-Me-1hg"/>
+                            <constraint firstItem="70v-Gz-rON" firstAttribute="centerX" secondItem="dl7-nF-E7C" secondAttribute="centerX" id="hm4-Lx-skc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dl7-nF-E7C" firstAttribute="leading" secondItem="ien-UZ-d0n" secondAttribute="leading" id="E5I-Qe-RGK"/>
+                    <constraint firstAttribute="bottom" secondItem="dl7-nF-E7C" secondAttribute="bottom" id="mZU-lk-9Yk"/>
+                    <constraint firstItem="dl7-nF-E7C" firstAttribute="top" secondItem="ien-UZ-d0n" secondAttribute="top" id="p5W-mA-9Df"/>
+                    <constraint firstAttribute="trailing" secondItem="dl7-nF-E7C" secondAttribute="trailing" id="wwg-Uq-2xD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-65.217391304347828" y="270.53571428571428"/>
+        </tableViewCell>
+    </objects>
+</document>
