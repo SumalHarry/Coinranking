@@ -20,7 +20,6 @@ target 'Coinranking' do
   pod 'Gloss', '~> 3.2'
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
-  pod 'RealmSwift'
   pod 'UCZProgressView', '~> 1.0'
   pod 'Kingfisher', '~> 7.0'
   pod 'SVGKit'

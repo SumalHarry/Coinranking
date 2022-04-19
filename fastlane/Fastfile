@@ -50,17 +50,15 @@ platform :ios do
 
   lane :beta do
     cocoapods(
-      clean_install: true,
+      # clean_install: true,
       # podfile: "./Podfile"
     )
-    # increment_build_number(
-    #   build_number: app_store_build_number + 1,
-    #   xcodeproj: "./Coinranking.xcodeproj"
-    # )
+    increment_build_number()
     match(type: "appstore")
    
-    # capture_screenshots
     gym(scheme: "Coinranking", workspace: "Coinranking.xcworkspace", export_method: "app-store", configuration: "Release", clean: true, output_directory: "build")
+
+    # capture_screenshots
 
     testflight(ipa: "build/Coinranking.ipa", skip_waiting_for_build_processing: true)
     

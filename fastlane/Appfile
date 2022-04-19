@@ -1,7 +1,7 @@
 app_identifier("com.lmwn.assignment.Coinranking") # The bundle identifier of your app
 apple_id("akmongkonrat@gmail.com") # Your Apple email address
 team_id("3ALF8LXXA7") # Your Apple email address
-
+ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "gkoh-ddxe-ujyn-rlot"
 
 # For more information about the Appfile, see:
 #     https://docs.fastlane.tools/advanced/#appfile

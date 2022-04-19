@@ -5,11 +5,6 @@ PODS:
   - CocoaLumberjack/Core (3.7.4)
   - Gloss (3.2.1)
   - Kingfisher (7.2.0)
-  - Realm (10.24.0):
-    - Realm/Headers (= 10.24.0)
-  - Realm/Headers (10.24.0)
-  - RealmSwift (10.24.0):
-    - Realm (= 10.24.0)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
   - RxAlamofire/Core (6.1.1):
@@ -28,7 +23,6 @@ PODS:
 DEPENDENCIES:
   - Gloss (~> 3.2)
   - Kingfisher (~> 7.0)
-  - RealmSwift
   - RxAlamofire
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
@@ -41,8 +35,6 @@ SPEC REPOS:
     - CocoaLumberjack
     - Gloss
     - Kingfisher
-    - Realm
-    - RealmSwift
     - RxAlamofire
     - RxCocoa
     - RxRelay
@@ -55,8 +47,6 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   Gloss: 2cda64dd31f12d8c7905273c7883c63ee92bfee3
   Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
-  Realm: 5d6f84e3f65d4efa204d46b461e5bbbbbbf84c6c
-  RealmSwift: 9022754b93fad23e1ffc950c93574c5b7899bd51
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
@@ -64,6 +54,6 @@ SPEC CHECKSUMS:
   SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
   UCZProgressView: 55836987c15ee6efb7cd6dfe297556602ee46c94
 
-PODFILE CHECKSUM: c561ba388830292588e5f43e48b27232b1e1f3c7
+PODFILE CHECKSUM: 78159d3755ae7eee593e037eacb15550d2329136
 
 COCOAPODS: 1.11.3

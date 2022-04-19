@@ -38,4 +38,10 @@ class CoinrankingUITests: XCTestCase {
             }
         }
     }
+    
+    func testScreenshots() throws {
+              
+                                                       
+    }
+  
 }
