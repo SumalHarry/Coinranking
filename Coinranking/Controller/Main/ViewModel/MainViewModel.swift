@@ -21,7 +21,7 @@ class MainViewModel: MainInterface, MainInteractorOutput {
     var currentOffset = 0
     var currentKeyword: String?
     
-    let dispostBag = DisposeBag()
+    let disposeBag = DisposeBag()
     var isLoadData = false
     
     // Output
@@ -177,7 +177,7 @@ extension MainViewModel: MainInteractorInput {
                 weakSelf.mapToCoinViewModel(getCoins: nil, type: .error)
             }
         )
-        .disposed(by: dispostBag)
+        .disposed(by: disposeBag)
     }
     
     // lazy load active function

@@ -11,7 +11,7 @@ import RxCocoa
 
 class SearchCoinController: UISearchBar {
     var viewModel: MainInterface!
-    let dispostBag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     func setup(_ interface: MainInterface) {
         viewModel = interface
@@ -27,7 +27,7 @@ class SearchCoinController: UISearchBar {
                 guard let weakSelf = self else { return }
                 weakSelf.viewModel.input.getCoints(keyword: keyword, doClearData: true)
             })
-            .disposed(by: dispostBag)
+            .disposed(by: disposeBag)
     }
 }
 

@@ -14,7 +14,7 @@ class CoinDetailViewModel: CoinDetailInterface, CoinDetailInteractorInput {
     var input: CoinDetailInteractorInput  { return self }
     var output: CoinDetailInteractorOutput  { return self }
     
-    let dispostBag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     let behCoinDetailDisplay = BehaviorSubject<CoinDetailDisplayViewModel?>(value: nil)
     
@@ -35,7 +35,7 @@ class CoinDetailViewModel: CoinDetailInterface, CoinDetailInteractorInput {
                 print(err)
             }
         )
-        .disposed(by: dispostBag)
+        .disposed(by: disposeBag)
     }
     
     

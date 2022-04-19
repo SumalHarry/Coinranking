@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class MainViewController: UIViewController, UITableViewDelegate {
     
@@ -15,6 +16,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var searchbar: SearchCoinController!
     @IBOutlet weak var tableCoinList: TableCoinController!
     
+    let disposeBag = DisposeBag()
     var uuidSelectDetail: String?
     var viewModel: MainInterface!
     
@@ -55,7 +57,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
             onError: { err in
                 print(err)
             }
-        )
+        ).disposed(by: disposeBag)
         
         viewModel.output.behHiddenNoResultView.debug().subscribe(
             onNext: { [weak self] isHidden in
@@ -66,6 +68,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
             onError: { err in
                 print(err)
             }
-        )
+        ).disposed(by: disposeBag)
     }
 }

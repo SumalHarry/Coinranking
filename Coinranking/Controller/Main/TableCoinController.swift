@@ -7,6 +7,7 @@
 
 import UIKit
 import UCZProgressView
+import RxSwift
 
 class TableCoinController: UITableView {
     var viewModel: MainInterface!
@@ -14,7 +15,8 @@ class TableCoinController: UITableView {
     var isSearchFromKeyword = false
     var tableCoinCellDisplay = TableCoinCellDisplay(topRank: [], coins: [])
     let uiRefresh = UIRefreshControl()
-    
+    let disposeBag = DisposeBag()
+
     func setup(_ interface: MainInterface) {
         viewModel = interface
         tableView = self
@@ -94,7 +96,7 @@ class TableCoinController: UITableView {
                     weakSelf.enableRefreshControl()
                 }
             }
-        )
+        ).disposed(by: disposeBag)
         
         viewModel.output.behTableCoinCellDisplay.subscribe(
             onNext: { [weak self] (res) in
@@ -104,7 +106,7 @@ class TableCoinController: UITableView {
                 weakSelf.tableCoinCellDisplay = res
                 weakSelf.tableView.reloadData()
             }
-        )
+        ).disposed(by: disposeBag)
     }
     
     func isDisplayTopRank() -> Bool {

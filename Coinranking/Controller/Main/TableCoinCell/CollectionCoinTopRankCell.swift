@@ -35,7 +35,6 @@ class CollectionCoinTopRankCell: UICollectionViewCell {
                     let receivedimage: SVGKImage = SVGKImage(data: data)
                     
                     let viewBox = receivedimage.domTree.viewBox
-                    let size = receivedimage.size
                     
                     if abs(Double(viewBox.width / viewBox.height)) < svgRatio {
                         receivedimage.scaleToFit(inside: CGSize(width: receivedimage.size.width, height: imageViewIcon.frame.height))

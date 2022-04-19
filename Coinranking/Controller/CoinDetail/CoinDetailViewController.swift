@@ -26,8 +26,10 @@ class CoinDetailViewController: UIViewController {
     @IBOutlet weak var lbMarketCap: UILabel!
     @IBOutlet weak var imageViewIcon: UIImageView!
     
+    let disposeBag = DisposeBag()
     var viewModel: CoinDetailInterface!
     var uuid: String?
+
     private let svgRatio = 0.8
 
     var coinDetailViewModel: CoinDetailDisplayViewModel? {
@@ -68,7 +70,7 @@ class CoinDetailViewController: UIViewController {
             onError: { err in
                 print(err)
             }
-        )
+        ).disposed(by: disposeBag)
     }
     
     func setDisplayDetail(coinDetailViewModel: CoinDetailDisplayViewModel!) {
@@ -86,7 +88,6 @@ class CoinDetailViewController: UIViewController {
                 let receivedimage: SVGKImage = SVGKImage(data: data)
                 
                 let viewBox = receivedimage.domTree.viewBox
-                let size = receivedimage.size
                 
                 if abs(Double(viewBox.width / viewBox.height)) < svgRatio {
                     receivedimage.scaleToFit(inside: CGSize(width: receivedimage.size.width, height: imageViewIcon.frame.height))
