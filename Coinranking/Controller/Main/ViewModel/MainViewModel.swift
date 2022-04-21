@@ -26,10 +26,7 @@ class MainViewModel: MainInterface, MainInteractorOutput {
     var isLoadData = false
     
     // Output
-    let behCoinsData = BehaviorSubject<GetCoinsModel?>(value: nil)
     let behSearchFromKeyword = BehaviorSubject<Bool>(value: false)
-    let behGetCoinError = BehaviorSubject<Bool>(value: false)
-    
     var behViewCoinDetail = BehaviorSubject<String?>(value: nil)
     var behHiddenNoResultView = BehaviorSubject<Bool>(value: true)
     
@@ -95,7 +92,6 @@ extension MainViewModel {
         var topRank:[CoinDisplayViewModel] = []
         var coins:[TableCoinCellDisplayViewModel] = []
 
-        let count = coinViewModel.count
         guard let totalData = totalData else { return }
         
         // Check display invite cell
@@ -118,6 +114,7 @@ extension MainViewModel {
         }
         
         // Check display loading cell
+        let count = coinViewModel.count
         if count < totalData || totalData == -1 {
             switch type {
             case .loading:

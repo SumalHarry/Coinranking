@@ -7,11 +7,16 @@
 
 import XCTest
 import Gloss
+import RxSwift
+import Alamofire
+import RxAlamofire
 
 @testable import Coinranking
 
 
 class CoinrankingTests: XCTestCase {
+
+    let disposeBag = DisposeBag()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -34,6 +39,44 @@ class CoinrankingTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testGetCointsSuccess(){
+        let viewModel = MainViewModel(service: MockCoinrankingService(statusCode: 200))
+        viewModel.output.behTableCoinCellDisplay.debug().subscribe(
+            onNext: { (res) in
+                let data = res as TableCoinCellDisplay
+                let error = data.coins.filter({ cellData in
+                    cellData.cellType == .error
+                })
+                
+                let haveError = !error.isEmpty
+                if haveError {
+                    XCTFail()
+                }
+            }
+        ).disposed(by: disposeBag)
+        
+        viewModel.getCoints(keyword: nil, doClearData: true)
+    }
+    
+    func testGetCointsError(){
+        let viewModel = MainViewModel(service: MockCoinrankingService(statusCode: 404))
+        viewModel.output.behTableCoinCellDisplay.debug().subscribe(
+            onNext: { (res) in
+                let data = res as TableCoinCellDisplay
+                let error = data.coins.filter({ cellData in
+                    cellData.cellType == .error
+                })
+                
+                let haveError = !error.isEmpty
+                if haveError {
+                    XCTAssert(true)
+                }
+            }
+        ).disposed(by: disposeBag)
+        
+        viewModel.getCoints(keyword: nil, doClearData: true)
     }
     
     func testConvertCoinViewModel(){
@@ -76,35 +119,32 @@ class CoinrankingTests: XCTestCase {
             XCTAssertEqual(UIColor.black, coinViewModel.changeTextColor)
         }
     }
-    
-
-//        self.iconUrl = model.iconUrl
-//        self.symbol = (model.symbol != nil) ? model.symbol: "No description"
-//        self.name = (model.name != nil) ? model.name: "No description"
-//
-//        if let priceTxt = model.price, let price = Double(priceTxt) {
-//            self.priceText = "$\(price.withCommas(digits: 2))"
-//        } else {
-//            self.priceText = "No description"
-//        }
-//
-//        if let changeTxt = model.change, var change = Double(changeTxt) {
-//            if change >= 0 {
-//                self.changeText = "\u{2191} \(change.withCommas(digits: 2))"
-//                self.changeTextColor = UIColor.constColor.changeIncreaseColor()
-//            } else if  change < 0 {
-//                change *= -1
-//                self.changeText = "\u{2193} \(change.withCommas(digits: 2))"
-//                self.changeTextColor = UIColor.constColor.changeDecreaseColor()
-//            } else {
-//                self.changeText = change.withCommas(digits: 2)
-//                self.changeTextColor = UIColor.black
-//            }
-//        } else {
-//            self.changeText = "No description"
-//            self.changeTextColor = UIColor.black
-//        }
-//
-//        self.rank = model.rank
-
 }
+
+
+class MockCoinrankingService: MainServiceInterface {
+    var errorCode = 200
+    var status = "success"
+    var isFail = false
+
+    enum MainError: Error {
+        case noData
+        case unKnown
+    }
+    
+    init(statusCode: Int) {
+        errorCode = statusCode
+        isFail = false
+        if statusCode > 300 {
+            status = "Fail"
+            isFail = true
+        }
+    }
+    
+   func getCoins(parameters: Parameters?) -> Observable<Any> {
+        let mockStr = "{ \"status\": \"\(status)\", \"data\": { \"stats\": { \"total\": 13786, \"totalCoins\": 13786, \"totalMarkets\": 26529, \"totalExchanges\": 180, \"totalMarketCap\": \"2005997557804\", \"total24hVolume\": \"96632000091\" }, \"coins\": [ { \"uuid\": \"Qwsogvtv82FCd\", \"symbol\": \"BTC\", \"name\": \"Bitcoin\", \"color\": \"#f7931A\", \"iconUrl\": \"https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg\", \"marketCap\": \"798213258860\", \"price\": \"41971.88986257227\", \"listedAt\": 1330214400, \"tier\": 1, \"change\": \"1.08\", \"rank\": 1, \"sparkline\": [ \"41522.1822865000933177640000\", \"41680.0248870818248457280000\", \"41964.4473422723311740580000\", \"41956.6243886861814543220000\", \"41744.2981717842022677890000\", \"41592.3886034324393103240000\", \"41242.8576072865327944560000\", \"41259.8793631539300315160000\", \"41358.3600842264954305080000\", \"41192.7593620344485915660000\", \"41119.0191667723449206390000\", \"41220.3258158295446772280000\", \"41385.0565266059611063490000\", \"41475.9789740703194820140000\", \"41405.1030731732703682820000\", \"41429.5427778611436253610000\", \"41521.0845096002961900860000\", \"41639.1040189167363542960000\", \"41622.8228911516090436560000\", \"41638.5579679867246878500000\", \"41616.5593698357157549490000\", \"41469.7082596931450692590000\", \"41516.8052730355388478810000\", \"41665.2350497156555625560000\", \"41876.2047747023076004360000\", \"41825.3035545206968729250000\", \"41971.8898625722729029300000\" ], \"lowVolume\": false, \"coinrankingUrl\": \"https://coinranking.com/coin/Qwsogvtv82FCd+bitcoin-btc\", \"24hVolume\": \"26736180277\", \"btcPrice\": \"1\" } ] } }"
+        let json = mockStr.convertToDictionary!
+        return Observable.of(json)
+    }
+}
+

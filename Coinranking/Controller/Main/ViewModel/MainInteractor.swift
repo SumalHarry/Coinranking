@@ -26,10 +26,7 @@ protocol MainInteractorInput {
 }
 
 protocol MainInteractorOutput {
-    var behCoinsData : BehaviorSubject<GetCoinsModel?> { get }
-    var behSearchFromKeyword: BehaviorSubject<Bool> { get }
-    var behGetCoinError: BehaviorSubject<Bool> { get }
-    
+    var behSearchFromKeyword: BehaviorSubject<Bool> { get }    
     var behViewCoinDetail: BehaviorSubject<String?> { get }
     var behHiddenNoResultView: BehaviorSubject<Bool> { get }
     
