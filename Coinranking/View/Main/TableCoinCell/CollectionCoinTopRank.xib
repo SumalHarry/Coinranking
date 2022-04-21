@@ -38,6 +38,9 @@
                     <constraint firstAttribute="trailing" secondItem="FWn-sy-qxl" secondAttribute="trailing" id="uhb-xd-1vY"/>
                 </constraints>
             </tableViewCellContentView>
+            <accessibility key="accessibilityConfiguration">
+                <bool key="isElement" value="YES"/>
+            </accessibility>
             <connections>
                 <outlet property="collectionView" destination="FWn-sy-qxl" id="NRW-Ep-ABu"/>
                 <outlet property="collectionViewFlowLayout" destination="bqY-77-rzk" id="ofK-dG-9f5"/>

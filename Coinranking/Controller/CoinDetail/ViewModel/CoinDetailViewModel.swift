@@ -18,8 +18,15 @@ class CoinDetailViewModel: CoinDetailInterface, CoinDetailInteractorInput {
     
     let behCoinDetailDisplay = BehaviorSubject<CoinDetailDisplayViewModel?>(value: nil)
     
+    // MARK : - Init
+    var service: CoinDetailServiceInterface!
+    
+    init(service: CoinDetailServiceInterface) {
+        self.service = service
+    }
+    
     func getCoinDetail(uuid: String){
-        CoinrankingService.shared.getCoinDatail(uuid: uuid).debug().subscribe(
+        service.getCoinDatail(uuid: uuid).debug().subscribe(
             onNext: { [weak self] in
                 guard let weakSelf = self else { return }
                 

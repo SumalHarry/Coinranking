@@ -90,6 +90,9 @@
                     <constraint firstItem="Zq4-ly-lMu" firstAttribute="top" secondItem="sSe-Re-gno" secondAttribute="top" constant="1" id="Yiw-Sr-RYd"/>
                 </constraints>
             </tableViewCellContentView>
+            <accessibility key="accessibilityConfiguration">
+                <bool key="isElement" value="YES"/>
+            </accessibility>
             <connections>
                 <outlet property="imageViewIcon" destination="lSl-pd-KeX" id="pDF-Ap-nIk"/>
                 <outlet property="lbChangeText" destination="8wa-j4-ePc" id="TZ2-FB-ghe"/>

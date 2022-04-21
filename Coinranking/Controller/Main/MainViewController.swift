@@ -22,7 +22,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup(MainViewModel())
+        setup(MainViewModel(service: CoinrankingService()))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

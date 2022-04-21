@@ -47,6 +47,14 @@ register app
 
 
 
+### ios screenshots
+
+```sh
+[bundle exec] fastlane ios screenshots
+```
+
+
+
 ### ios beta
 
 ```sh

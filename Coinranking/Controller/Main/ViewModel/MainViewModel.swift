@@ -13,6 +13,7 @@ class MainViewModel: MainInterface, MainInteractorOutput {
     
     var input: MainInteractorInput  { return self }
     var output: MainInteractorOutput  { return self }
+    var service: MainServiceInterface!
     
     private let topRankDisplay = 3
     private let inviteIndexConst = 5
@@ -47,6 +48,10 @@ class MainViewModel: MainInterface, MainInteractorOutput {
     var coinViewModel: [CoinDisplayViewModel] = []
     var isLoadFromRefresh = false
     var isSearchFromKeyword = false
+    
+    init(service: MainServiceInterface) {
+        self.service = service
+    }
 }
 
 enum ResponseType: Int, CaseIterable {
@@ -157,7 +162,7 @@ extension MainViewModel: MainInteractorInput {
         // For Show loading
         mapToCoinViewModel(getCoins: nil, type: .loading)
         
-        CoinrankingService.shared.getCoins(parameters: parameters).debug().subscribe(
+        service.getCoins(parameters: parameters).debug().subscribe(
             onNext: { [weak self] in
                 guard let weakSelf = self else { return }
                 weakSelf.isLoadData = false

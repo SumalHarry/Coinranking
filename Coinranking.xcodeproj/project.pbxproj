@@ -49,6 +49,7 @@
 		8401F89127FA22C40005F5AB /* TableCoinErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401F89027FA22C40005F5AB /* TableCoinErrorCell.swift */; };
 		8401F89327FA22DB0005F5AB /* TableCoinErrorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8401F89227FA22DB0005F5AB /* TableCoinErrorCell.xib */; };
 		8401F89B27FAB77F0005F5AB /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401F89A27FAB77F0005F5AB /* Double.swift */; };
+		842DF68E280F04A5004C0090 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DF68D280F04A5004C0090 /* SnapshotHelper.swift */; };
 		849F147A2805C7B1001D4D1D /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F14792805C7B1001D4D1D /* MainInteractor.swift */; };
 		849F14802805DD0E001D4D1D /* CoinDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F147F2805DD0E001D4D1D /* CoinDetailInteractor.swift */; };
 		849F148228066689001D4D1D /* CoinDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F148128066689001D4D1D /* CoinDetailViewModel.swift */; };
@@ -123,6 +124,7 @@
 		8401F89027FA22C40005F5AB /* TableCoinErrorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCoinErrorCell.swift; sourceTree = "<group>"; };
 		8401F89227FA22DB0005F5AB /* TableCoinErrorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCoinErrorCell.xib; sourceTree = "<group>"; };
 		8401F89A27FAB77F0005F5AB /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		842DF68D280F04A5004C0090 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		849F14792805C7B1001D4D1D /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		849F147F2805DD0E001D4D1D /* CoinDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailInteractor.swift; sourceTree = "<group>"; };
 		849F148128066689001D4D1D /* CoinDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailViewModel.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		8401F82227FA03BD0005F5AB /* CoinrankingUITests */ = {
 			isa = PBXGroup;
 			children = (
+				842DF68D280F04A5004C0090 /* SnapshotHelper.swift */,
 				8401F82327FA03BD0005F5AB /* CoinrankingUITests.swift */,
 				8401F82527FA03BD0005F5AB /* CoinrankingUITestsLaunchTests.swift */,
 			);
@@ -718,6 +721,7 @@
 			files = (
 				8401F82627FA03BD0005F5AB /* CoinrankingUITestsLaunchTests.swift in Sources */,
 				8401F82427FA03BD0005F5AB /* CoinrankingUITests.swift in Sources */,
+				842DF68E280F04A5004C0090 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -937,7 +941,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = WWH8397XC5;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
@@ -958,7 +962,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = WWH8397XC5;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
@@ -978,7 +982,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = WWH8397XC5;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -997,7 +1001,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = WWH8397XC5;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;

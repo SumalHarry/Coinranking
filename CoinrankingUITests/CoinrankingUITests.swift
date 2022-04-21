@@ -6,9 +6,18 @@
 //
 
 import XCTest
+// import Snapshot
 
 class CoinrankingUITests: XCTestCase {
 
+    override func setUp() {
+            super.setUp()
+            
+            let app = XCUIApplication()
+            app.launchEnvironment = [ "UITest": "1" ]
+            app.launch()
+    }
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -40,8 +49,7 @@ class CoinrankingUITests: XCTestCase {
     }
     
     func testScreenshots() throws {
-              
-                                                       
+       snapshot("01")
     }
   
 }

@@ -42,7 +42,7 @@ class CoinDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup(CoinDetailViewModel())
+        setup(CoinDetailViewModel(service: CoinrankingService()))
     }
     
     override func viewWillAppear(_ animated: Bool) {

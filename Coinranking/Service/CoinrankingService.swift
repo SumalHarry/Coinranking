@@ -11,10 +11,6 @@ import Alamofire
 import RxAlamofire
 
 class CoinrankingService {
-    static let shared: CoinrankingService = {
-        return CoinrankingService()
-    }()
-    
     private let baseUrl = Constants.BASE_URL
     private let headers: HTTPHeaders = [
         "Accept": "application/json",
