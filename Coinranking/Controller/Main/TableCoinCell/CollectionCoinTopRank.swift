@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class CollectionCoinTopRank: UITableViewCell {
     static let reuseId = "CollectionCoinTopRank"
     var viewModel: MainInterface!
+    let disposeBag = DisposeBag()
     
     var topRankCoin: [CoinDisplayViewModel]! {
         didSet {
@@ -36,11 +39,20 @@ class CollectionCoinTopRank: UITableViewCell {
     }
     
     func setupOrientationChangedEvt() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(orientationChanged(notification:)),
-            name: UIDevice.orientationDidChangeNotification,
-            object: nil)
+                NotificationCenter.default.addObserver(
+                    self,
+                    selector: #selector(orientationChanged(notification:)),
+                    name: UIDevice.orientationDidChangeNotification,
+                    object: nil)
+
+//        NotificationCenter.default.rx.notification(UIDevice.orientationDidChangeNotification)
+//            .observe(on: MainScheduler.instance)
+//            .subscribe(onNext: { data in
+//                print("data \(data)")
+//                self.collectionView.reloadData()
+//
+//            })
+//            .disposed(by: disposeBag)
     }
     @objc func orientationChanged(notification : NSNotification) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
