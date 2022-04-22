@@ -44,7 +44,7 @@ class CoinrankingTests: XCTestCase {
     func testGetCointsSuccess(){
         let viewModel = MainViewModel(service: MockCoinrankingService(statusCode: 200))
         viewModel.output.behTableCoinCellDisplay.debug().subscribe(
-            onNext: { (res) in
+            onNext: { res in
                 let data = res as TableCoinCellDisplay
                 let error = data.coins.filter({ cellData in
                     cellData.cellType == .error
@@ -63,7 +63,7 @@ class CoinrankingTests: XCTestCase {
     func testGetCointsError(){
         let viewModel = MainViewModel(service: MockCoinrankingService(statusCode: 404))
         viewModel.output.behTableCoinCellDisplay.debug().subscribe(
-            onNext: { (res) in
+            onNext: { res in
                 let data = res as TableCoinCellDisplay
                 let error = data.coins.filter({ cellData in
                     cellData.cellType == .error

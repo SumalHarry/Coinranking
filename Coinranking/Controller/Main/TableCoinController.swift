@@ -83,11 +83,10 @@ class TableCoinController: UITableView {
     }
     
     func setupEvent(){
-        // Event for check display top 3 rank and display pull to refresh
+        // Event for check enable pull to refresh
         viewModel.output.behSearchFromKeyword.subscribe(
             onNext: { [weak self] res in
                 guard let weakSelf = self else { return }
-                // New Search From Keyword Reset offet to 0 and query
                 weakSelf.isSearchFromKeyword = res
                 
                 if weakSelf.isSearchFromKeyword == true {

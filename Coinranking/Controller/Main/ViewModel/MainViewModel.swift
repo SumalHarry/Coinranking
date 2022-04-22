@@ -59,17 +59,17 @@ enum ResponseType: Int, CaseIterable {
 
 extension MainViewModel {
     
-    func clearData(){
+    private func clearData(){
         coinViewModel = []
         totalData = -1
         currentOffset = 0
     }
     
-    func isDisplayTopRank() -> Bool {
+    private func isDisplayTopRank() -> Bool {
         return isSearchFromKeyword == false && !coinViewModel.isEmpty
     }
     
-    func mapToCoinViewModel(getCoins: GetCoinsModel?,type: ResponseType){
+    private func mapToCoinViewModel(getCoins: GetCoinsModel?,type: ResponseType){
         if let getCoins = getCoins {
             totalData = getCoins.data?.stats?.totalData
             let coins = getCoins.data?.coins
@@ -88,7 +88,7 @@ extension MainViewModel {
         }
     }
    
-    func mapToTableCoinCellDisplay(coinViewModel: [CoinDisplayViewModel], type: ResponseType){
+    private func mapToTableCoinCellDisplay(coinViewModel: [CoinDisplayViewModel], type: ResponseType){
         var topRank:[CoinDisplayViewModel] = []
         var coins:[TableCoinCellDisplayViewModel] = []
 
