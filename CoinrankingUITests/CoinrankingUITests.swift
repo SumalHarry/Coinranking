@@ -11,11 +11,11 @@ import XCTest
 class CoinrankingUITests: XCTestCase {
 
     override func setUp() {
-            super.setUp()
-            
-            let app = XCUIApplication()
-            app.launchEnvironment = [ "UITest": "1" ]
-            app.launch()
+        super.setUp()
+
+        let app = XCUIApplication()
+        setupSnapshot(app)
+        app.launch()
     }
     
     override func setUpWithError() throws {
@@ -46,5 +46,13 @@ class CoinrankingUITests: XCTestCase {
                 XCUIApplication().launch()
             }
         }
+    }
+    
+    func testScreenShot() throws {
+        snapshot("01Home")
+        let app = XCUIApplication()
+        app.tables/*@START_MENU_TOKEN@*/.staticTexts["BTC"]/*[[".cells[\"BTC, Bitcoin, ↓ 5.91, ETH, Ethereum, ↓ 4.22, USDT, Tether USD, ↑ 0.15\"].staticTexts[\"BTC\"]",".staticTexts[\"BTC\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        snapshot("02Detail")
+        app.buttons[" "].tap()
     }
 }
