@@ -13,26 +13,20 @@ class MainViewModel: MainInterface, MainInteractorOutput {
     
     var input: MainInteractorInput  { return self }
     var output: MainInteractorOutput  { return self }
-    var service: MainServiceInterface!
+    private var service: MainServiceInterface!
     
     private let topRankDisplay = 3
     private let inviteIndexConst = 5
     private let limit = 10
 
-    var currentOffset = 0
-    var currentKeyword: String?
+    private var currentOffset = 0
+    private var currentKeyword: String?
     
-    let disposeBag = DisposeBag()
-    var isLoadData = false
-    
-    // Output
-    let behSearchFromKeyword = BehaviorSubject<Bool>(value: false)
-    var behViewCoinDetail = BehaviorSubject<String?>(value: nil)
-    var behHiddenNoResultView = BehaviorSubject<Bool>(value: true)
-    
-    var behTableCoinCellDisplay = BehaviorSubject<TableCoinCellDisplay>(value: TableCoinCellDisplay(topRank: [], coins: []))
-
-    var totalData: Int? = -1 {
+    private let disposeBag = DisposeBag()
+    private var coinViewModel: [CoinDisplayViewModel] = []
+    private var isLoadFromRefresh = false
+    private var isSearchFromKeyword = false
+    private  var totalData: Int? = -1 {
         didSet {
             guard let totalData = totalData else {return}
             if totalData == 0 {
@@ -42,9 +36,13 @@ class MainViewModel: MainInterface, MainInteractorOutput {
             }
         }
     }
-    var coinViewModel: [CoinDisplayViewModel] = []
-    var isLoadFromRefresh = false
-    var isSearchFromKeyword = false
+    
+    // Output
+    var isLoadData = false
+    let behSearchFromKeyword = BehaviorSubject<Bool>(value: false)
+    var behViewCoinDetail = BehaviorSubject<String?>(value: nil)
+    var behHiddenNoResultView = BehaviorSubject<Bool>(value: true)
+    var behTableCoinCellDisplay = BehaviorSubject<TableCoinCellDisplay>(value: TableCoinCellDisplay(topRank: [], coins: []))
     
     init(service: MainServiceInterface) {
         self.service = service

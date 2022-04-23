@@ -29,7 +29,6 @@ protocol MainInteractorOutput {
     var behSearchFromKeyword: BehaviorSubject<Bool> { get }    
     var behViewCoinDetail: BehaviorSubject<String?> { get }
     var behHiddenNoResultView: BehaviorSubject<Bool> { get }
-    
     var behTableCoinCellDisplay: BehaviorSubject<TableCoinCellDisplay> { get }
     
     var isLoadData: Bool { get }
