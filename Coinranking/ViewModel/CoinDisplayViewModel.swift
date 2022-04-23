@@ -25,7 +25,7 @@ struct CoinDisplayViewModel {
         self.name = (model.name != nil) ? model.name: "No description"
 
         if let priceTxt = model.price, let price = Double(priceTxt) {
-            self.priceText = "$\(price.withCommas(digits: 2))"
+            self.priceText = "$\(price.withCommas(digits: 5))"
         } else {
             self.priceText = "No description"
         }
