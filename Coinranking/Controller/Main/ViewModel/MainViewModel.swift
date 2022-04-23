@@ -13,20 +13,20 @@ class MainViewModel: MainInterface, MainInteractorOutput {
     
     var input: MainInteractorInput  { return self }
     var output: MainInteractorOutput  { return self }
-    private var service: MainServiceInterface!
+    var service: MainServiceInterface!
     
-    private let topRankDisplay = 3
-    private let inviteIndexConst = 5
-    private let limit = 10
+    let topRankDisplay = 3
+    let inviteIndexConst = 5
+    let limit = 10
 
-    private var currentOffset = 0
-    private var currentKeyword: String?
+    var currentOffset = 0
+    var currentKeyword: String?
     
-    private let disposeBag = DisposeBag()
-    private var coinViewModel: [CoinDisplayViewModel] = []
-    private var isLoadFromRefresh = false
-    private var isSearchFromKeyword = false
-    private  var totalData: Int? = -1 {
+    let disposeBag = DisposeBag()
+    var coinViewModel: [CoinDisplayViewModel] = []
+    var isLoadFromRefresh = false
+    var isSearchFromKeyword = false
+    var totalData: Int? = -1 {
         didSet {
             guard let totalData = totalData else {return}
             if totalData == 0 {
@@ -57,17 +57,17 @@ enum ResponseType: Int, CaseIterable {
 
 extension MainViewModel {
     
-    private func clearData(){
+    func clearData(){
         coinViewModel = []
         totalData = -1
         currentOffset = 0
     }
     
-    private func isDisplayTopRank() -> Bool {
+    func isDisplayTopRank() -> Bool {
         return isSearchFromKeyword == false && !coinViewModel.isEmpty
     }
     
-    private func mapToCoinViewModel(getCoins: GetCoinsModel?,type: ResponseType){
+    func mapToCoinViewModel(getCoins: GetCoinsModel?,type: ResponseType){
         if let getCoins = getCoins {
             totalData = getCoins.data?.stats?.totalData
             let coins = getCoins.data?.coins
@@ -86,7 +86,7 @@ extension MainViewModel {
         }
     }
    
-    private func mapToTableCoinCellDisplay(coinViewModel: [CoinDisplayViewModel], type: ResponseType){
+    func mapToTableCoinCellDisplay(coinViewModel: [CoinDisplayViewModel], type: ResponseType){
         var topRank:[CoinDisplayViewModel] = []
         var coins:[TableCoinCellDisplayViewModel] = []
 
