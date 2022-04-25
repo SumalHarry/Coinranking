@@ -60,8 +60,7 @@ platform :ios do
     match(type: "appstore")
    
     gym(scheme: "Coinranking", workspace: "Coinranking.xcworkspace", export_method: "app-store", configuration: "Release", clean: true, output_directory: "build")
-    scan(scheme: "Coinranking")
-
+    run_tests(scheme: "Coinranking")
     testflight(ipa: "build/Coinranking.ipa", skip_waiting_for_build_processing: true)
     
     clean_build_artifacts

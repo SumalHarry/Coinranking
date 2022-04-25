@@ -92,7 +92,7 @@ class CoinrankingTests: XCTestCase {
             XCTAssertEqual(coinModel.iconUrl, coinViewModel.iconUrl)
             XCTAssertEqual(coinModel.symbol, coinViewModel.symbol)
             XCTAssertEqual(coinModel.name, coinViewModel.name)
-            XCTAssertEqual("$40,960.35", coinViewModel.priceText)
+            XCTAssertEqual("$40,960.34836", coinViewModel.priceText)
             XCTAssertEqual(coinModel.rank, coinViewModel.rank)
             XCTAssertEqual("\u{2193} 4.09", coinViewModel.changeText)
             XCTAssertEqual(UIColor.constColor.changeDecreaseColor(), coinViewModel.changeTextColor)
