@@ -30,8 +30,8 @@ struct CoinDetailDisplayViewModel {
             self.symbolText = "No description"
         }
         
-        self.name = (model.name != nil) ? model.name: "No description"
-        self.description = (model.description != nil) ? model.description: "No description"
+        self.name = model.name ?? "No description"
+        self.description = model.description ?? "No description"
         self.color = model.color
         self.websiteUrl = model.websiteUrl
         

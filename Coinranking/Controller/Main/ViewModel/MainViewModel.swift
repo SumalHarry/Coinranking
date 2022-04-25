@@ -57,14 +57,17 @@ enum ResponseType: Int, CaseIterable {
 
 extension MainViewModel {
     
+    // MARK: - Clear data when refresh or search
     func clearData(){
         coinViewModel = []
         totalData = -1
         currentOffset = 0
     }
     
-    func isDisplayTopRank() -> Bool {
-        return isSearchFromKeyword == false && !coinViewModel.isEmpty
+    var isDisplayTopRank: Bool {
+        get {
+            return isSearchFromKeyword == false && !coinViewModel.isEmpty
+        }
     }
     
     func mapToCoinViewModel(getCoins: GetCoinsModel?,type: ResponseType){
@@ -95,7 +98,7 @@ extension MainViewModel {
         // Check display invite cell
         var inviteAppendAmount = 0
         var inviteIndex = inviteIndexConst
-        let displayTopRank = isDisplayTopRank()
+        let displayTopRank = isDisplayTopRank
         let plusTopRankDisplay = (displayTopRank == true) ? topRankDisplay : 0
         
         for (index, element) in coinViewModel.enumerated() {
@@ -127,10 +130,15 @@ extension MainViewModel {
         let tableCoinCellDisplay = TableCoinCellDisplay(topRank: topRank, coins: coins)
         behTableCoinCellDisplay.onNext(tableCoinCellDisplay)
     }
+    
+    // MARK: - Show or hidden no result view
+    func hiddenNoResultView(isHidden: Bool) {
+        behHiddenNoResultView.onNext(isHidden)
+    }
 }
 
 extension MainViewModel: MainInteractorInput {
-    
+    // MARK: - Load coins data
     func getCoints(keyword: String?, doClearData: Bool = false){
         isLoadData = true
         if doClearData == true {
@@ -180,26 +188,24 @@ extension MainViewModel: MainInteractorInput {
         .disposed(by: disposeBag)
     }
     
-    // lazy load active function
+    // MARK: - Lazy load active function
     func getCointsMore(){
         currentOffset = coinViewModel.count
         getCoints(keyword: currentKeyword)
     }
     
-    // Pull to refresh active function
+    // MARK: - Pull to refresh active function
     func getCointsRefresh(){
         isLoadFromRefresh = true
         getCoints(keyword: currentKeyword, doClearData: true)
     }
     
+    // MARK: - Pull to refresh active function
     func viewCoinDetail(uuid: String) {
         behViewCoinDetail.onNext(uuid)
     }
     
-    func hiddenNoResultView(isHidden: Bool) {
-        behHiddenNoResultView.onNext(isHidden)
-    }
-    
+    // MARK: - Try again active function
     func tryAgainAction() {
         getCointsMore()
     }

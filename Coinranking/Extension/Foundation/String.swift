@@ -20,6 +20,11 @@ extension String {
         return htmlToAttributedString?.string ?? ""
     }
     
+    func convertToAttributedString(fontSize: Int = 17) -> NSAttributedString? {
+            let modifiedFontString = "<span style=\"font-size: \(fontSize); color: rgb(85, 85, 85)\">" + self + "</span>"
+            return modifiedFontString.htmlToAttributedString
+        }
+    
     var convertToDictionary: [String: Any]? {
         if let data = self.data(using: .utf8) {
                 do {

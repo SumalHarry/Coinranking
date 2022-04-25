@@ -66,11 +66,7 @@ class CollectionCoinTopRankCell: UICollectionViewCell {
     func setupView(){
         viewBackground.setCornerRadius(radius: 8)
         viewBackground.setShadow(radius: 8)
-        lbUpdate.text="\u{2191}"
+        
+        viewBackground.backgroundColor = UIColor.init(named: "testDark")
     }
-    
-    //    lable.text="\u{2191}"
-    //    2191
-    //    2193
-    
 }

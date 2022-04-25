@@ -59,6 +59,7 @@ class CoinDetailViewController: UIViewController {
     
     func setupView(){
         btnGoToWebsite.addBorder(to: .top, in: UIColor.constColor.separatorColor(), width: 1)
+        tvDescription.font = UIFont(name: "System", size: 18)
     }
     
     func setupEvent(){
@@ -112,6 +113,9 @@ class CoinDetailViewController: UIViewController {
         lbPriceText.text = coinDetailViewModel.priceText
         lbMarketCapText.text = coinDetailViewModel.marketCapText
         tvDescription.attributedText = coinDetailViewModel.description?.htmlToAttributedString
+        
+        tvDescription.attributedText = coinDetailViewModel.description?.convertToAttributedString()
+
         
         if coinDetailViewModel.websiteUrl != nil {
             btnGoToWebsite.isHidden = false

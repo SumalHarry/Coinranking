@@ -21,8 +21,8 @@ struct CoinDisplayViewModel {
     init?(model: GetCoinsCoin) {
         self.uuid = model.uuid
         self.iconUrl = model.iconUrl
-        self.symbol = (model.symbol != nil) ? model.symbol: "No description"
-        self.name = (model.name != nil) ? model.name: "No description"
+        self.symbol = model.symbol ?? "No description"
+        self.name = model.name ?? "No description"
 
         if let priceTxt = model.price, let price = Double(priceTxt) {
             self.priceText = "$\(price.withCommas(digits: 5))"

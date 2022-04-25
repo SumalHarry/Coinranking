@@ -17,9 +17,7 @@ protocol MainInteractorInput {
     func getCointsMore()
     // Pull to refresh active function
     func getCointsRefresh()
-    
-    func hiddenNoResultView(isHidden: Bool)
-    
+        
     func viewCoinDetail(uuid: String)
     
     func tryAgainAction()
